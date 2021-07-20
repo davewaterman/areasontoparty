@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.0.0",
+    "@netlify/plugin-nextjs": "^3.7.1",
     "contentful": "^7.14.6",
     "next": "10.0.6",
     "react": "17.0.1",
