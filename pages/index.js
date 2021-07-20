@@ -1,6 +1,7 @@
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { fetchEntry } from "@utils/contentful";
 import Image from "next/image";
 import React from "react";
-//import bg from "../public/crowd.jpg";
 
 // function component
 const AnimatedCard = ({ animation, digit }) => {
@@ -75,6 +76,7 @@ class FlipClock extends React.Component {
       seconds: 0,
       secondsShuffle: true,
     };
+    this.countdownDate = props.countdownDate;
   }
 
   componentDidMount() {
@@ -88,7 +90,7 @@ class FlipClock extends React.Component {
   updateTime() {
     // get new date
     const time = new Date();
-    const deadline = new Date("2021-07-24T10:00:00").getTime();
+    const deadline = new Date(this.countdownDate).getTime();
     // set time units
     const distance = deadline - time.getTime();
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -187,27 +189,27 @@ class FlipClock extends React.Component {
 }
 
 // function component
-const Header = () => {
+const Header = ({ pageHeader }) => {
   return (
     <header className="m-8 text-4xl text-center bg-black">
-      <h1>The world of Parties is about to Change in a BIG way...</h1>
+      <h1>{pageHeader}</h1>
     </header>
   );
 };
 
-const Form = () => {
+const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
+  console.log(documentToReactComponents(textboxBodyText));
   return (
     <section
       id="dw_mailchimp_form"
       className="m-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl"
     >
       <p className="text-white font-mono text-center m-5 text-xl">
-        Get Notified
+        {textboxHeader}
       </p>
-      <p className="text-white font-mono text-center">
-        We will let you know when we are launching. <br />
-        Hell, we may even send you a pre-release event invite.
-      </p>
+      <div className="text-white font-mono text-center">
+        {documentToReactComponents(textboxBodyText)}
+      </div>
       <div id="mc_embed_signup" className="clearfix text-center m-5">
         <form name="mc-embedded-subscribe-form" netlify="true">
           <div className="mc-field-group">
@@ -229,7 +231,7 @@ const Form = () => {
             <div className="">
               <input
                 type="submit"
-                value="Subscribe"
+                value={buttonText}
                 name="subscribe"
                 id="mc-embedded-subscribe"
                 className="button font-mono px-2 mt-3"
@@ -255,7 +257,7 @@ const Form = () => {
 };
 
 // function component
-const App = () => {
+const App = ({ content }) => {
   return (
     <div id="app" className="">
       <Image
@@ -267,11 +269,15 @@ const App = () => {
         className="z-0"
       />
       <div className="flex flex-col items-center z-10">
-        <Header />
+        <Header pageHeader={content.pageHeader} />
         <div className="h-72 w-full text-center">
-          <FlipClock />
+          <FlipClock countdownDate={content.countdownDate} />
         </div>
-        <Form />
+        <Form
+          textboxHeader={content.textboxHeader?.content}
+          textboxBodyText={content.textboxBodyText}
+          buttonText={content.buttonText}
+        />
       </div>
       <style global jsx>{`
         @import url("https://fonts.googleapis.com/css?family=Droid+Sans+Mono");
@@ -438,5 +444,16 @@ const App = () => {
     </div>
   );
 };
+export async function getStaticProps() {
+  const res = await fetchEntry("6Peie2iVl1U4xvpypa22FA");
+  const content = res?.fields;
+  console.log(content.textboxBodyText.content[0].content[0].value);
+
+  return {
+    props: {
+      content,
+    },
+  };
+}
 
 export default App;
