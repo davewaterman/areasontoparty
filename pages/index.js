@@ -206,6 +206,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
           className="flex flex-col"
         >
           <div className="fields">
+            <input type="hidden" name="form-name" value="subscribe-form" />
             <div className="field">
               <input
                 type="email"
