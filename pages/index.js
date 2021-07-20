@@ -207,16 +207,18 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
         >
           <input
             type="email"
+            defaultValue=""
             name="email"
-            className="required email font-mono p-1 text-sm bg-white"
+            className="flex required email font-mono p-1 text-sm bg-white"
+            id="email"
             placeholder="Enter your email"
           />
           <input
             type="submit"
             value={buttonText}
             name="submit"
-            id="mc-embedded-subscribe"
-            className="button font-mono px-2 mt-3 bg-white"
+            id="subscribe-button"
+            className="flex button font-mono px-2 mt-3 bg-white"
           />
         </form>
       </div>
