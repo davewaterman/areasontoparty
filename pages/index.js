@@ -201,8 +201,8 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
       >
         <form
           name="launch-subscribe-form"
-          method="post"
-          netlify
+          action="POST"
+          data-netlify="true"
           className="flex flex-col"
         >
           <input
@@ -214,7 +214,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
           <input
             type="submit"
             value={buttonText}
-            name="subscribe"
+            name="submit"
             id="mc-embedded-subscribe"
             className="button font-mono px-2 mt-3 bg-white"
           />
