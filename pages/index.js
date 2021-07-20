@@ -147,38 +147,45 @@ class FlipClock extends React.Component {
       secondsShuffle,
     } = this.state;
 
+    const flipUnitContainerStyle = "m-12 w-1/6";
     return (
       <div>
         <div
-          className={
-            "flex justify-center m-8 bg-no-repeat bg-top h-72 w-full relative"
-          }
+          className={"flex bg-no-repeat bg-top h-72 w-screen relative"}
           style={{
             backgroundImage: "url('flipclock-border-bw2.png')",
             filter: "grayscale(100%)",
           }}
         >
-          <div className="absolute top-20">
-            <div className={"flipClock"}>
+          <div className="absolute top-20 w-screen">
+            <div
+              className={
+                "flipClock w-screen space-x-1 sm:w-12 md:w-24 lg:w-96 lg:space-x-10"
+              }
+            >
               <FlipUnitContainer
                 unit={"Days"}
                 digit={days}
                 shuffle={daysShuffle}
+                className={flipUnitContainerStyle}
               />
               <FlipUnitContainer
                 unit={"Hours"}
                 digit={hours}
                 shuffle={hoursShuffle}
+                className={flipUnitContainerStyle}
               />
               <FlipUnitContainer
                 unit={"Minutes"}
                 digit={minutes}
                 shuffle={minutesShuffle}
+                className={flipUnitContainerStyle}
               />
               <FlipUnitContainer
                 unit={"Seconds"}
                 digit={seconds}
                 shuffle={secondsShuffle}
+                className={flipUnitContainerStyle}
               />
             </div>
           </div>
@@ -259,7 +266,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
 // function component
 const App = ({ content }) => {
   return (
-    <div id="app" className="">
+    <div id="app" className="relative w-screen">
       <Image
         src={"/crowd.jpg"}
         alt="Crowd"
@@ -314,14 +321,14 @@ const App = ({ content }) => {
         #app .flipClock {
           display: flex;
           justify-content: space-between;
-          width: 560px;
+          //width: 560px;
         }
 
         #app .flipUnitContainer {
           display: block;
           position: relative;
-          width: 120px;
-          height: 100px;
+          //width: 90px;
+          height: 70px;
           perspective-origin: 50% 50%;
           perspective: 300px;
           background-color: white;
