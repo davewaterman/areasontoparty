@@ -200,26 +200,30 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
         className="clearfix text-center m-5 w-auto sm:w-1/2 self-center"
       >
         <form
-          name="launch-subscribe-form"
+          name="launch-form"
           action="POST"
           data-netlify="true"
           className="flex flex-col"
         >
-          <input
-            type="email"
-            defaultValue=""
-            name="email"
-            className="flex required email font-mono p-1 text-sm bg-white"
-            id="email"
-            placeholder="Enter your email"
-          />
-          <input
-            type="submit"
-            value={buttonText}
-            name="submit"
-            id="subscribe-button"
-            className="flex button font-mono px-2 mt-3 bg-white"
-          />
+          <div className="fields">
+            <div className="field">
+              <input
+                type="email"
+                defaultValue=""
+                name="email"
+                className="required email font-mono p-1 text-sm bg-white"
+                id="email"
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
+          <div className="actions">
+            <input
+              type="submit"
+              value={buttonText}
+              className="button font-mono px-2 mt-3 bg-white"
+            />
+          </div>
         </form>
       </div>
     </section>
