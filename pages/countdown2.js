@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+//import bg from "../public/crowd.jpg";
 
 // function component
 const AnimatedCard = ({ animation, digit }) => {
@@ -124,22 +126,36 @@ class FlipClock extends React.Component {
     } = this.state;
 
     return (
-      <div className={"flipClock"}>
-        <FlipUnitContainer
-          unit={"hours"}
-          digit={hours}
-          shuffle={hoursShuffle}
-        />
-        <FlipUnitContainer
-          unit={"minutes"}
-          digit={minutes}
-          shuffle={minutesShuffle}
-        />
-        <FlipUnitContainer
-          unit={"seconds"}
-          digit={seconds}
-          shuffle={secondsShuffle}
-        />
+      <div>
+        <div
+          className={
+            "flex justify-center m-8 bg-no-repeat bg-top h-72 w-full relative"
+          }
+          style={{
+            backgroundImage: "url('flipclock-border-bw2.png')",
+            filter: "grayscale(100%)",
+          }}
+        >
+          <div className="absolute top-20">
+            <div className={"flipClock"}>
+              <FlipUnitContainer
+                unit={"hours"}
+                digit={hours}
+                shuffle={hoursShuffle}
+              />
+              <FlipUnitContainer
+                unit={"minutes"}
+                digit={minutes}
+                shuffle={minutesShuffle}
+              />
+              <FlipUnitContainer
+                unit={"seconds"}
+                digit={seconds}
+                shuffle={secondsShuffle}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -148,21 +164,21 @@ class FlipClock extends React.Component {
 // function component
 const Header = () => {
   return (
-    <header>
-      <h1>Coming Soon...</h1>
+    <header className="m-8 text-4xl text-center bg-black">
+      <h1>The world of Parties is about to Change in a BIG way...</h1>
     </header>
   );
 };
 
 const Form = () => {
   return (
-    <section id="dw_mailchimp_form">
+    <section id="dw_mailchimp_form" className="m-8">
       <div id="mc_embed_signup" className="clearfix">
-        <form name="mc-embedded-subscribe-form" netlify>
+        <form name="mc-embedded-subscribe-form" netlify="true">
           <div className="mc-field-group">
             <input
               type="email"
-              value=""
+              defaultValue=""
               name="EMAIL"
               className="required email"
               id="mce-EMAIL"
@@ -172,7 +188,7 @@ const Form = () => {
               <input
                 type="text"
                 name="b_b14cb5a32fad5c5fd5131db83_9cc9b4aa0d"
-                value=""
+                defaultValue=""
               />
             </div>
             <div className="">
@@ -206,10 +222,22 @@ const Form = () => {
 // function component
 const App = () => {
   return (
-    <div id="app">
-      <Header />
-      <FlipClock />
-      <Form />
+    <div id="app" className="">
+      <Image
+        src={"/../public/crowd.jpg"}
+        alt="Crowd"
+        layout="fill"
+        objectFit="cover"
+        objectPosition="cover"
+        className="z-0"
+      />
+      <div className="flex flex-col items-center z-10">
+        <Header />
+        <div className="h-72 w-full text-center">
+          <FlipClock />
+        </div>
+        <Form />
+      </div>
       <style global jsx>{`
         @import url("https://fonts.googleapis.com/css?family=Droid+Sans+Mono");
         #app * {
@@ -227,8 +255,6 @@ const App = () => {
           min-height: 100vh;
           justify-content: center;
           align-items: center;
-          background-color: #fbab7e;
-          background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
         }
 
         #app header {
