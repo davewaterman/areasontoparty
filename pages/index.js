@@ -211,7 +211,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
         {documentToReactComponents(textboxBodyText)}
       </div>
       <div id="mc_embed_signup" className="clearfix text-center m-5">
-        <form name="mc-embedded-subscribe-form" netlify="true">
+        <form name="launch-subscribe-form" netlify="true" data-netlify="true">
           <div className="mc-field-group">
             <input
               type="email"
@@ -267,6 +267,7 @@ const App = ({ content }) => {
         objectFit="cover"
         objectPosition="cover"
         className="z-0"
+        unoptimized="true"
       />
       <div className="flex flex-col items-center z-10">
         <Header pageHeader={content.pageHeader} />
