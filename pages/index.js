@@ -290,7 +290,7 @@ const App = ({ content }) => {
           .flipUnitContainer {
             display: block;
             position: relative;
-            //width: 90px;
+            //width: 120px;
             height: 90px;
             perspective-origin: 50% 50%;
             perspective: 300px;
@@ -311,7 +311,7 @@ const App = ({ content }) => {
           }
           .upperCard span,
           .lowerCard span {
-            font-size: 5em;
+            font-size: 4em;
             font-family: "Droid Sans Mono", monospace;
             font-weight: lighter;
             color: white;
@@ -349,7 +349,7 @@ const App = ({ content }) => {
           }
           .flipCard span {
             font-family: "Droid Sans Mono", monospace;
-            font-size: 5em;
+            font-size: 4em;
             font-weight: lighter;
             color: white;
           }
