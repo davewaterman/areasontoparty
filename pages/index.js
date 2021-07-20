@@ -306,7 +306,7 @@ const App = ({ content }) => {
             height: 70px;
             perspective-origin: 50% 50%;
             perspective: 300px;
-            background-color: white;
+            background-color: black;
             border-radius: 3px;
             box-shadow: 0px 10px 10px -10px grey;
           }
@@ -326,7 +326,7 @@ const App = ({ content }) => {
             font-size: 5em;
             font-family: "Droid Sans Mono", monospace;
             font-weight: lighter;
-            color: #333333;
+            color: white;
           }
 
           .upperCard {
@@ -363,14 +363,14 @@ const App = ({ content }) => {
             font-family: "Droid Sans Mono", monospace;
             font-size: 5em;
             font-weight: lighter;
-            color: #333333;
+            color: white;
           }
           .flipCard.unfold {
             top: 50%;
             align-items: flex-start;
             transform-origin: 50% 0%;
             transform: rotateX(180deg);
-            background-color: white;
+            background-color: black;
             border-bottom-left-radius: 3px;
             border-bottom-right-radius: 3px;
             border: 0.5px solid whitesmoke;
@@ -384,7 +384,7 @@ const App = ({ content }) => {
             align-items: flex-end;
             transform-origin: 50% 100%;
             transform: rotateX(0deg);
-            background-color: white;
+            background-color: black;
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
             border: 0.5px solid whitesmoke;
