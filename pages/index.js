@@ -201,7 +201,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
       >
         <form
           name="subscribe-form"
-          action="POST"
+          method="POST"
           data-netlify="true"
           className="flex flex-col"
         >
@@ -218,12 +218,9 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
             </div>
           </div>
           <div className="actions">
-            <input
-              type="submit"
-              value="Subscribe"
-              id="subscribe"
-              className="button font-mono px-2 mt-3 bg-white"
-            />
+            <button type="submit" className="font-mono px-2 mt-3 bg-white">
+              Subscribe
+            </button>
           </div>
         </form>
       </div>
