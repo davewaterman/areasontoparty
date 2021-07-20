@@ -200,7 +200,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
         className="clearfix text-center m-5 w-auto sm:w-1/2 self-center"
       >
         <form
-          name="launch-form"
+          name="Subscribe"
           action="POST"
           data-netlify="true"
           className="flex flex-col"
@@ -220,7 +220,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
           <div className="actions">
             <input
               type="submit"
-              value={buttonText}
+              value="Subscribe"
               className="button font-mono px-2 mt-3 bg-white"
             />
           </div>
