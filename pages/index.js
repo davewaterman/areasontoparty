@@ -57,7 +57,7 @@ const FlipUnitContainer = ({ digit, shuffle, unit }) => {
       <StaticCard position={"lowerCard"} digit={previousDigit} />
       <AnimatedCard digit={digit1} animation={animation1} />
       <AnimatedCard digit={digit2} animation={animation2} />
-      <span className="text-white font-mono">{unit}</span>
+      <span className="text-white font-mono bg-black">{unit}</span>
     </div>
   );
 };
@@ -187,7 +187,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
   return (
     <section
       id="dw_mailchimp_form"
-      className="w-5/6 my-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl"
+      className="w-5/6 my-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl border-4 border-black md:w-1/2"
     >
       <p className="text-white font-mono text-center m-5 text-xl">
         {textboxHeader}
@@ -303,7 +303,7 @@ const App = ({ content }) => {
             display: block;
             position: relative;
             //width: 90px;
-            height: 70px;
+            height: 90px;
             perspective-origin: 50% 50%;
             perspective: 300px;
             background-color: black;
