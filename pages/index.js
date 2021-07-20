@@ -261,7 +261,7 @@ const App = ({ content }) => {
   return (
     <div id="app" className="">
       <Image
-        src={"/crowd.jpg"}
+        src={"https://areasontoparty.com/crowd.jpg"}
         alt="Crowd"
         layout="fill"
         objectFit="cover"
@@ -447,7 +447,6 @@ const App = ({ content }) => {
 export async function getStaticProps() {
   const res = await fetchEntry("6Peie2iVl1U4xvpypa22FA");
   const content = res?.fields;
-  console.log(content.textboxBodyText.content[0].content[0].value);
 
   return {
     props: {
