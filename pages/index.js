@@ -261,7 +261,7 @@ const App = ({ content }) => {
   return (
     <div id="app" className="">
       <Image
-        src={"https://areasontoparty.com/crowd.jpg"}
+        src={"/crowd.jpg"}
         alt="Crowd"
         layout="fill"
         objectFit="cover"
