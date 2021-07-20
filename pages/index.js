@@ -200,12 +200,13 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
         className="clearfix text-center m-5 w-auto sm:w-1/2 self-center"
       >
         <form
-          name="Subscribe"
-          action="POST"
+          name="subscribe-form"
+          method="POST"
           data-netlify="true"
           className="flex flex-col"
         >
           <div className="fields">
+            <input type="hidden" name="form-name" value="subscribe-form" />
             <div className="field">
               <input
                 type="email"
@@ -218,11 +219,9 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
             </div>
           </div>
           <div className="actions">
-            <input
-              type="submit"
-              value="Subscribe"
-              className="button font-mono px-2 mt-3 bg-white"
-            />
+            <button type="submit" className="font-mono px-2 mt-3 bg-white">
+              Subscribe
+            </button>
           </div>
         </form>
       </div>
