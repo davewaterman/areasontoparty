@@ -52,7 +52,7 @@ const FlipUnitContainer = ({ digit, shuffle, unit }) => {
   const animation2 = !shuffle ? "fold" : "unfold";
 
   return (
-    <div className={"flipUnitContainer"}>
+    <div className={"flipUnitContainer flex-grow w-1/5 sm:w-auto"}>
       <StaticCard position={"upperCard"} digit={currentDigit} />
       <StaticCard position={"lowerCard"} digit={previousDigit} />
       <AnimatedCard digit={digit1} animation={animation1} />
@@ -147,49 +147,26 @@ class FlipClock extends React.Component {
       secondsShuffle,
     } = this.state;
 
-    const flipUnitContainerStyle = "m-12 w-1/6";
     return (
-      <div>
-        <div
-          className={"flex bg-no-repeat bg-top h-72 w-screen relative"}
-          style={{
-            backgroundImage: "url('flipclock-border-bw2.png')",
-            filter: "grayscale(100%)",
-          }}
-        >
-          <div className="absolute top-20 w-screen">
-            <div
-              className={
-                "flipClock w-screen space-x-1 sm:w-12 md:w-24 lg:w-96 lg:space-x-10"
-              }
-            >
-              <FlipUnitContainer
-                unit={"Days"}
-                digit={days}
-                shuffle={daysShuffle}
-                className={flipUnitContainerStyle}
-              />
-              <FlipUnitContainer
-                unit={"Hours"}
-                digit={hours}
-                shuffle={hoursShuffle}
-                className={flipUnitContainerStyle}
-              />
-              <FlipUnitContainer
-                unit={"Minutes"}
-                digit={minutes}
-                shuffle={minutesShuffle}
-                className={flipUnitContainerStyle}
-              />
-              <FlipUnitContainer
-                unit={"Seconds"}
-                digit={seconds}
-                shuffle={secondsShuffle}
-                className={flipUnitContainerStyle}
-              />
-            </div>
-          </div>
-        </div>
+      <div
+        className={"flipClock text-right space-x-2 sm:space-x-5 lg:space-x-10"}
+      >
+        <FlipUnitContainer unit={"Days"} digit={days} shuffle={daysShuffle} />
+        <FlipUnitContainer
+          unit={"Hours"}
+          digit={hours}
+          shuffle={hoursShuffle}
+        />
+        <FlipUnitContainer
+          unit={"Minutes"}
+          digit={minutes}
+          shuffle={minutesShuffle}
+        />
+        <FlipUnitContainer
+          unit={"Seconds"}
+          digit={seconds}
+          shuffle={secondsShuffle}
+        />
       </div>
     );
   }
@@ -198,7 +175,7 @@ class FlipClock extends React.Component {
 // function component
 const Header = ({ pageHeader }) => {
   return (
-    <header className="m-8 text-4xl text-center bg-black">
+    <header className="my-8 text-4xl text-center bg-black">
       <h1>{pageHeader}</h1>
     </header>
   );
@@ -209,7 +186,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
   return (
     <section
       id="dw_mailchimp_form"
-      className="m-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl"
+      className="my-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl"
     >
       <p className="text-white font-mono text-center m-5 text-xl">
         {textboxHeader}
@@ -266,7 +243,7 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
 // function component
 const App = ({ content }) => {
   return (
-    <div id="app" className="relative w-screen">
+    <div id="app">
       <Image
         src={"/crowd.jpg"}
         alt="Crowd"
@@ -276,11 +253,9 @@ const App = ({ content }) => {
         className="z-0"
         unoptimized="true"
       />
-      <div className="flex flex-col items-center z-10">
+      <div className="flex flex-col justify-center items-center z-10">
         <Header pageHeader={content.pageHeader} />
-        <div className="h-72 w-full text-center">
-          <FlipClock countdownDate={content.countdownDate} />
-        </div>
+        <FlipClock countdownDate={content.countdownDate} />
         <Form
           textboxHeader={content.textboxHeader?.content}
           textboxBodyText={content.textboxBodyText}
@@ -320,7 +295,7 @@ const App = ({ content }) => {
 
         #app .flipClock {
           display: flex;
-          justify-content: space-between;
+          //justify-content: space-between;
           //width: 560px;
         }
 
