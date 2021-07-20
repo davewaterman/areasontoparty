@@ -186,8 +186,8 @@ const Header = ({ pageHeader }) => {
 const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
   return (
     <section
-      id="dw_mailchimp_form"
-      className="w-5/6 my-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl border-4 border-black md:w-1/2"
+      id="subscription-form"
+      className="flex flex-col w-5/6 my-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl border-4 border-black md:w-1/2"
     >
       <p className="text-white font-mono text-center m-5 text-xl">
         {textboxHeader}
@@ -195,46 +195,29 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
       <div className="text-white font-mono text-center">
         {documentToReactComponents(textboxBodyText)}
       </div>
-      <div id="mc_embed_signup" className="clearfix text-center m-5">
-        <form name="launch-subscribe-form" netlify="true" data-netlify="true">
-          <div className="mc-field-group">
-            <input
-              type="email"
-              defaultValue=""
-              name="EMAIL"
-              className="required email font-mono p-1 text-sm bg-white"
-              id="mce-EMAIL"
-              placeholder="Enter your email"
-            />
-            <div style={{ position: "absolute", left: "-5000px" }}>
-              <input
-                type="text"
-                name="b_b14cb5a32fad5c5fd5131db83_9cc9b4aa0d"
-                defaultValue=""
-              />
-            </div>
-            <div className="">
-              <input
-                type="submit"
-                value={buttonText}
-                name="subscribe"
-                id="mc-embedded-subscribe"
-                className="button font-mono px-2 mt-3 bg-white"
-              />
-            </div>
-          </div>
-          <div id="mce-responses" className="clear">
-            <div
-              className="response"
-              id="mce-error-response"
-              style={{ display: "none" }}
-            ></div>
-            <div
-              className="response"
-              id="mce-success-response"
-              style={{ display: "none" }}
-            ></div>
-          </div>
+      <div
+        id="mc_embed_signup"
+        className="clearfix text-center m-5 w-auto sm:w-1/2 self-center"
+      >
+        <form
+          name="launch-subscribe-form"
+          method="post"
+          netlify
+          className="flex flex-col"
+        >
+          <input
+            type="email"
+            name="email"
+            className="required email font-mono p-1 text-sm bg-white"
+            placeholder="Enter your email"
+          />
+          <input
+            type="submit"
+            value={buttonText}
+            name="subscribe"
+            id="mc-embedded-subscribe"
+            className="button font-mono px-2 mt-3 bg-white"
+          />
         </form>
       </div>
     </section>
