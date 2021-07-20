@@ -24,12 +24,13 @@ const StaticCard = ({ position, digit }) => {
 const FlipUnitContainer = ({ digit, shuffle, unit }) => {
   // assign digit values
   let currentDigit = digit;
-  let previousDigit = digit - 1;
+  let previousDigit = digit + 1;
 
   // to prevent a negative value
-  if (unit !== "hours") {
+  if (["Minutes", "Seconds"].includes(unit)) {
     previousDigit = previousDigit === -1 ? 59 : previousDigit;
-  } else {
+    if (previousDigit === 60) previousDigit = 0;
+  } else if (unit === "Hours") {
     previousDigit = previousDigit === -1 ? 23 : previousDigit;
   }
 
@@ -55,6 +56,7 @@ const FlipUnitContainer = ({ digit, shuffle, unit }) => {
       <StaticCard position={"lowerCard"} digit={previousDigit} />
       <AnimatedCard digit={digit1} animation={animation1} />
       <AnimatedCard digit={digit2} animation={animation2} />
+      <span className="text-white font-mono">{unit}</span>
     </div>
   );
 };
@@ -64,6 +66,8 @@ class FlipClock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      days: 0,
+      daysShuffle: true,
       hours: 0,
       hoursShuffle: true,
       minutes: 0,
@@ -74,7 +78,7 @@ class FlipClock extends React.Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(() => this.updateTime(), 100);
+    this.timerID = setInterval(() => this.updateTime(), 50);
   }
 
   componentWillUnmount() {
@@ -84,10 +88,24 @@ class FlipClock extends React.Component {
   updateTime() {
     // get new date
     const time = new Date();
+    const deadline = new Date("2021-07-24T10:00:00").getTime();
     // set time units
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
-    const seconds = time.getSeconds();
+    const distance = deadline - time.getTime();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // on hour chanage, update hours and shuffle state
+    if (days !== this.state.days) {
+      const daysShuffle = !this.state.daysShuffle;
+      this.setState({
+        days,
+        daysShuffle,
+      });
+    }
     // on hour chanage, update hours and shuffle state
     if (hours !== this.state.hours) {
       const hoursShuffle = !this.state.hoursShuffle;
@@ -117,9 +135,11 @@ class FlipClock extends React.Component {
   render() {
     // state object destructuring
     const {
+      days,
       hours,
       minutes,
       seconds,
+      daysShuffle,
       hoursShuffle,
       minutesShuffle,
       secondsShuffle,
@@ -139,17 +159,22 @@ class FlipClock extends React.Component {
           <div className="absolute top-20">
             <div className={"flipClock"}>
               <FlipUnitContainer
-                unit={"hours"}
+                unit={"Days"}
+                digit={days}
+                shuffle={daysShuffle}
+              />
+              <FlipUnitContainer
+                unit={"Hours"}
                 digit={hours}
                 shuffle={hoursShuffle}
               />
               <FlipUnitContainer
-                unit={"minutes"}
+                unit={"Minutes"}
                 digit={minutes}
                 shuffle={minutesShuffle}
               />
               <FlipUnitContainer
-                unit={"seconds"}
+                unit={"Seconds"}
                 digit={seconds}
                 shuffle={secondsShuffle}
               />
@@ -172,15 +197,25 @@ const Header = () => {
 
 const Form = () => {
   return (
-    <section id="dw_mailchimp_form" className="m-8">
-      <div id="mc_embed_signup" className="clearfix">
+    <section
+      id="dw_mailchimp_form"
+      className="m-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl"
+    >
+      <p className="text-white font-mono text-center m-5 text-xl">
+        Get Notified
+      </p>
+      <p className="text-white font-mono text-center">
+        We will let you know when we are launching. <br />
+        Hell, we may even send you a pre-release event invite.
+      </p>
+      <div id="mc_embed_signup" className="clearfix text-center m-5">
         <form name="mc-embedded-subscribe-form" netlify="true">
           <div className="mc-field-group">
             <input
               type="email"
               defaultValue=""
               name="EMAIL"
-              className="required email"
+              className="required email font-mono p-1 text-sm"
               id="mce-EMAIL"
               placeholder="Enter your email"
             />
@@ -197,7 +232,7 @@ const Form = () => {
                 value="Subscribe"
                 name="subscribe"
                 id="mc-embedded-subscribe"
-                className="button"
+                className="button font-mono px-2 mt-3"
               />
             </div>
           </div>
@@ -272,14 +307,14 @@ const App = () => {
         #app .flipClock {
           display: flex;
           justify-content: space-between;
-          width: 500px;
+          width: 560px;
         }
 
         #app .flipUnitContainer {
           display: block;
           position: relative;
-          width: 140px;
-          height: 120px;
+          width: 120px;
+          height: 100px;
           perspective-origin: 50% 50%;
           perspective: 300px;
           background-color: white;
