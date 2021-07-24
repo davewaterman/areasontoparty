@@ -1,12 +1,13 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { fetchEntry } from "@utils/contentful";
+import { Button, Form } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 
-const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
+const FormContainer = ({ textboxHeader, textboxBodyText, buttonText }) => {
   return (
     <section
       id="info-form"
-      className="flex flex-col m-auto bg-white my-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl border-4 border-black md:w-1/2"
+      className="flex flex-col m-auto p-5 bg-white my-8 backdrop-filter backdrop-grayscale backdrop-blur-sm backdrop-opacity-80 rounded-2xl border-4 border-black md:w-1/2"
     >
       <p className="text-black font-mono text-center m-5 text-xl">
         {textboxHeader}
@@ -25,41 +26,50 @@ const Form = ({ textboxHeader, textboxBodyText, buttonText }) => {
           className="flex flex-col min-w-full"
         >
           <input type="hidden" name="form-name" value="create-form" />
-          <div className="fields">
-            <div className="field">
-              <div className="text-left">
-                <label for="name">Name: </label>
-              </div>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                defaultV
-                alue=""
-                className="required w-2/3 font-mono p-1 text-sm bg-grey border-2"
-                placeholder="Enter your name"
+          <Form>
+            <Form.Field required>
+              <label>First Name</label>
+              <input placeholder="You're awesome" name="name" />
+            </Form.Field>
+            <Form.Field>
+              <label>Email</label>
+              <input placeholder="me@somebody.com" name="email" />
+            </Form.Field>
+            <Form.Field>
+              <label>Company Name</label>
+              <input placeholder="That place you work" name="company" />
+            </Form.Field>
+            <Form.Field>
+              <label>Phone</label>
+              <input placeholder="867-5309" name="phone" />
+            </Form.Field>
+            <Form.Field>
+              <label>
+                Years of event experience (if your just starting that is
+                completely ok)
+              </label>
+              <input placeholder="Experience" name="experience" />
+            </Form.Field>
+            <Form.Field>
+              <label>Your idea</label>
+              <textarea
+                name="idea"
+                defaultValue="Describe your idea:
+Do you have an idea how much this would cost to create:
+Have you tried it or something like it before?
+Where or how would you see this event being most successful:
+
+"
               />
-            </div>
-            <div className="field">
-              <div className="text-left">
-                <label for="companyName">Company Name (if applicable): </label>
-              </div>
-              <input
-                type="companyName"
-                name="companyName"
-                id="companyName"
-                defaultV
-                alue=""
-                className="w-2/3 font-mono p-1 text-sm bg-grey border-2"
-                placeholder="Company"
-              />
-            </div>
-          </div>
-          <div className="actions">
+            </Form.Field>
+            <Button type="submit">Submit</Button>
+          </Form>
+
+          {/* <div className="actions">
             <button type="submit" className="font-mono px-2 mt-3 bg-white">
               Subscribe
             </button>
-          </div>
+          </div> */}
         </form>
       </div>
     </section>
@@ -70,7 +80,7 @@ const Create = ({ content }) => {
   return (
     <Layout>
       <div>
-        <Form
+        <FormContainer
           textboxHeader={content.textboxHeader}
           textboxBodyText={content.textboxBodyText}
         />
