@@ -19,16 +19,10 @@ const FormContainer = ({ textboxHeader, textboxBodyText, buttonText }) => {
         id="mc_embed_signup"
         className="clearfix text-center my-5 min-w-full sm:w-1/2 self-center"
       >
-        <Form
-          name="create-form"
-          method="POST"
-          data-netlify="true"
-          className="flex flex-col min-w-full"
-          netlify
-        >
+        <Form name="create-form" method="POST" data-netlify="true">
           <input type="hidden" name="form-name" value="create-form" />
-          <Form.Field required>
-            <label>First Name</label>
+          <Form.Field>
+            <label>Name</label>
             <input placeholder="You're awesome" name="name" />
           </Form.Field>
           <Form.Field>
@@ -71,7 +65,31 @@ Where or how would you see this event being most successful:
             </button>
           </div>
         </Form>
-
+        <form
+          name="subscribe-form"
+          method="POST"
+          data-netlify="true"
+          className="flex flex-col"
+        >
+          <div className="fields">
+            <input type="hidden" name="form-name" value="subscribe-form" />
+            <div className="field">
+              <input
+                type="email"
+                defaultValue=""
+                name="email"
+                className="required email font-mono p-1 text-sm bg-white"
+                id="email"
+                placeholder="Enter your email"
+              />
+            </div>
+          </div>
+          <div className="actions">
+            <button type="submit" className="font-mono px-2 mt-3 bg-white">
+              Subscribe
+            </button>
+          </div>
+        </form>
         {/* <div className="actions">
             <button type="submit" className="font-mono px-2 mt-3 bg-white">
               Subscribe
