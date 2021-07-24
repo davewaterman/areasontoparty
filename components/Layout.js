@@ -6,7 +6,8 @@ import { useState } from "react";
 export default function Layout({ children, fixed }) {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
-    <div class="debug-screens bg-black mb-3">
+    <div class="bg-black mb-3">
+      {/* debug-screens */}
       <nav className="relative flex flex-wrap items-center justify-between px-2 bg-black">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
