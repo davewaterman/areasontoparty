@@ -19,14 +19,14 @@ const FormContainer = ({ textboxHeader, textboxBodyText }) => {
         className="clearfix text-center my-5 min-w-full sm:w-1/2 self-center"
       >
         <form
-          name="create-form"
+          name="fund-form"
           method="POST"
           data-netlify="true"
           className="ui form"
         >
           <div className="fields">
             <div className="flex flex-col w-full text-left">
-              <input type="hidden" name="form-name" value="create-form" />
+              <input type="hidden" name="form-name" value="fund-form" />
               <div className="field">
                 <label>Name</label>
                 <input
@@ -36,6 +36,23 @@ const FormContainer = ({ textboxHeader, textboxBodyText }) => {
                   id="name"
                   placeholder="Your awesome name"
                   className="w-full"
+                />
+              </div>
+              <div className="field">
+                <label>Reason you want to invest</label>
+                <input type="text" defaultValue="" name="reason" id="reason" />
+              </div>
+              <div className="field">
+                <label>
+                  What is the best way for one of our investment managers to
+                  reach out to you
+                </label>
+                <input
+                  type="text"
+                  defaultValue=""
+                  name="method-of-contact"
+                  id="method-of-contact"
+                  placeholder=""
                 />
               </div>
               <div className="field">
@@ -49,50 +66,12 @@ const FormContainer = ({ textboxHeader, textboxBodyText }) => {
                 />
               </div>
               <div className="field">
-                <label>Company</label>
+                <label>Phone/email/zoom</label>
                 <input
                   type="text"
                   defaultValue=""
-                  name="company"
-                  id="company"
-                  placeholder="Company"
-                />
-              </div>
-              <div className="field">
-                <label>Phone</label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  name="phone"
-                  id="phone"
-                  placeholder=""
-                />
-              </div>
-              <div className="field">
-                <label>
-                  Years of event experience (if your just starting that is
-                  completely ok)
-                </label>
-                <input
-                  type="text"
-                  defaultValue=""
-                  name="experience"
-                  id="experience"
-                  placeholder=""
-                />
-              </div>
-              <div className="field">
-                <label>Your idea</label>
-                <textarea
-                  type="text"
-                  defaultValue="Describe your idea:
-Do you have an idea how much this would cost to create:
-Have you tried it or something like it before?
-Where or how would you see this event being most successful:
-"
-                  name="idea"
-                  id="idea"
-                  placeholder=""
+                  name="contact"
+                  id="contact"
                 />
               </div>
             </div>
@@ -122,7 +101,7 @@ const Create = ({ content }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetchEntry("7uizhOLOyoMrZJqMSHZJq2");
+  const res = await fetchEntry("6jszfOVoKc3EQSSXsgmXpz");
   const content = res?.fields;
 
   return {

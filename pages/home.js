@@ -21,7 +21,7 @@ const Splash = () => {
             </Link>
           </div>
           <div className="h-1/4 w-screen bg-black cursor-pointer">
-            <Link href="/forms/create">
+            <Link href="/forms/inspire">
               <div className=" h-full border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
                 <div className="h-1/2 text-center py-4">
                   <a className="text-white text-2xl text-center align-middle px-8 py-4 ">
@@ -35,7 +35,7 @@ const Splash = () => {
             </Link>
           </div>
           <div className="h-1/4 w-screen bg-white cursor-pointer">
-            <Link href="/forms/create">
+            <Link href="/forms/fund">
               <div className=" h-full border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
                 <div className="h-1/2 text-center py-4">
                   <a className="text-black text-2xl text-center align-middle px-8 py-4 ">
@@ -49,7 +49,7 @@ const Splash = () => {
             </Link>
           </div>
           <div className="h-1/4 w-screen bg-black cursor-pointer">
-            <Link href="/forms/create">
+            <Link href="/forms/attend">
               <div className=" h-full border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
                 <div className="h-1/2 text-center py-4">
                   <a className="text-white text-2xl text-center align-middle px-8 py-4 ">
