@@ -24,6 +24,7 @@ const FormContainer = ({ textboxHeader, textboxBodyText, buttonText }) => {
           method="POST"
           data-netlify="true"
           className="flex flex-col min-w-full"
+          netlify
         >
           <input type="hidden" name="form-name" value="create-form" />
           <Form.Field required>
