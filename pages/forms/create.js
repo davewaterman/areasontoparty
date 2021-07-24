@@ -19,58 +19,56 @@ const FormContainer = ({ textboxHeader, textboxBodyText, buttonText }) => {
         id="mc_embed_signup"
         className="clearfix text-center my-5 min-w-full sm:w-1/2 self-center"
       >
-        <form
+        <Form
           name="create-form"
           method="POST"
           data-netlify="true"
           className="flex flex-col min-w-full"
         >
           <input type="hidden" name="form-name" value="create-form" />
-          <Form>
-            <Form.Field required>
-              <label>First Name</label>
-              <input placeholder="You're awesome" name="name" />
-            </Form.Field>
-            <Form.Field>
-              <label>Email</label>
-              <input placeholder="me@somebody.com" name="email" />
-            </Form.Field>
-            <Form.Field>
-              <label>Company Name</label>
-              <input placeholder="That place you work" name="company" />
-            </Form.Field>
-            <Form.Field>
-              <label>Phone</label>
-              <input placeholder="867-5309" name="phone" />
-            </Form.Field>
-            <Form.Field>
-              <label>
-                Years of event experience (if your just starting that is
-                completely ok)
-              </label>
-              <input placeholder="Experience" name="experience" />
-            </Form.Field>
-            <Form.Field>
-              <label>Your idea</label>
-              <textarea
-                name="idea"
-                defaultValue="Describe your idea:
+          <Form.Field required>
+            <label>First Name</label>
+            <input placeholder="You're awesome" name="name" />
+          </Form.Field>
+          <Form.Field>
+            <label>Email</label>
+            <input placeholder="me@somebody.com" name="email" />
+          </Form.Field>
+          <Form.Field>
+            <label>Company Name</label>
+            <input placeholder="That place you work" name="company" />
+          </Form.Field>
+          <Form.Field>
+            <label>Phone</label>
+            <input placeholder="867-5309" name="phone" />
+          </Form.Field>
+          <Form.Field>
+            <label>
+              Years of event experience (if your just starting that is
+              completely ok)
+            </label>
+            <input placeholder="Experience" name="experience" />
+          </Form.Field>
+          <Form.Field>
+            <label>Your idea</label>
+            <textarea
+              name="idea"
+              defaultValue="Describe your idea:
 Do you have an idea how much this would cost to create:
 Have you tried it or something like it before?
 Where or how would you see this event being most successful:
 
 "
-              />
-            </Form.Field>
-            <Button type="submit">Submit</Button>
-          </Form>
+            />
+          </Form.Field>
+          <Button type="submit">Submit</Button>
+        </Form>
 
-          {/* <div className="actions">
+        {/* <div className="actions">
             <button type="submit" className="font-mono px-2 mt-3 bg-white">
               Subscribe
             </button>
           </div> */}
-        </form>
       </div>
     </section>
   );
