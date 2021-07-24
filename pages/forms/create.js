@@ -1,6 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { fetchEntry } from "@utils/contentful";
-import { Button, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import Layout from "../../components/Layout";
 
 const FormContainer = ({ textboxHeader, textboxBodyText, buttonText }) => {
@@ -61,7 +61,14 @@ Where or how would you see this event being most successful:
 "
             />
           </Form.Field>
-          <Button type="submit">Submit</Button>
+          <div className="actions">
+            <button
+              type="submit"
+              className="ui button font-mono px-2 mt-3 bg-white"
+            >
+              Subscribe
+            </button>
+          </div>
         </Form>
 
         {/* <div className="actions">
