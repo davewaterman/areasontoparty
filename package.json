@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@netlify/plugin-nextjs": "^3.7.1",
     "contentful": "^7.14.6",
     "next": "10.0.6",
@@ -19,6 +22,7 @@
   "devDependencies": {
     "autoprefixer": "^10.3.1",
     "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.4",
+    "tailwindcss-debug-screens": "^2.0.0"
   }
 }
