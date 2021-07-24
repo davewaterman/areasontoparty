@@ -66,22 +66,55 @@ Where or how would you see this event being most successful:
           </div>
         </Form>
         <form
-          name="subscribe-form"
+          name="create-form"
           method="POST"
           data-netlify="true"
-          className="flex flex-col"
+          className="ui form"
         >
           <div className="fields">
-            <input type="hidden" name="form-name" value="subscribe-form" />
-            <div className="field">
-              <input
-                type="email"
-                defaultValue=""
-                name="email"
-                className="required email font-mono p-1 text-sm bg-white"
-                id="email"
-                placeholder="Enter your email"
-              />
+            <div className="flex flex-col w-full text-left">
+              <input type="hidden" name="form-name" value="create-form" />
+              <div className="field">
+                <label>Name</label>
+                <input
+                  type="text"
+                  defaultValue=""
+                  name="name"
+                  id="name"
+                  placeholder="Your awesome name"
+                  className="w-full"
+                />
+              </div>
+              <div className="field">
+                <label>Your Email</label>
+                <input
+                  type="email"
+                  defaultValue=""
+                  name="email"
+                  id="email"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div className="field">
+                <label>Company</label>
+                <input
+                  type="text"
+                  defaultValue=""
+                  name="company"
+                  id="company"
+                  placeholder="Company"
+                />
+              </div>
+              <div className="field">
+                <label>Phone</label>
+                <input
+                  type="text"
+                  defaultValue=""
+                  name="phone"
+                  id="phone"
+                  placeholder=""
+                />
+              </div>
             </div>
           </div>
           <div className="actions">
