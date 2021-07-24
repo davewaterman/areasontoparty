@@ -1,6 +1,5 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -12,7 +11,7 @@ export default function Layout({ children, fixed }) {
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <div className="flex items-center">
-              <Image src={"/logo-crop.png"} alt="logo" height="50" width="80" />
+              <img src={"/logo-crop.png"} alt="logo" height="50" width="80" />
               <Link href="/home">
                 <a
                   className="text-sm font-bold leading-relaxed inline-block mx-4 whitespace-nowrap uppercase text-white"
