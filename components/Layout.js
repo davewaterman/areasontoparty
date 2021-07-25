@@ -8,6 +8,12 @@ export default function Layout({ children, fixed }) {
   return (
     <div class="bg-black mb-3">
       {/* debug-screens */}
+      <style global jsx>{`
+        @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+        body {
+          font-family: "Alfa Slab One", cursive;
+        }
+      `}</style>
       <nav className="relative flex flex-wrap items-center justify-between px-2 bg-black">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
