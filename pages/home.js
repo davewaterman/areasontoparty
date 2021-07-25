@@ -10,8 +10,8 @@ const Splash = ({ content }) => {
           <div className="h-1/4 w-screen bg-white cursor-pointer">
             <Link href="/forms/create">
               <div className=" h-full border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
-                <div className="h-1/2 text-center py-4">
-                  <a className="text-black text-2xl text-center align-middle px-8 py-4 ">
+                <div className="h-1/2 text-center py-20">
+                  <a className="text-black text-2xl text-center align-middle px-8 py-4">
                     {content.title1}
                   </a>
                 </div>
@@ -24,7 +24,7 @@ const Splash = ({ content }) => {
           <div className="h-1/4 w-screen bg-black cursor-pointer">
             <Link href="/forms/inspire">
               <div className=" h-full border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
-                <div className="h-1/2 text-center py-4">
+                <div className="h-1/2 text-center py-20">
                   <a className="text-white text-2xl text-center align-middle px-8 py-4 ">
                     {content.title2}
                   </a>
@@ -38,7 +38,7 @@ const Splash = ({ content }) => {
           <div className="h-1/4 w-screen bg-white cursor-pointer">
             <Link href="/forms/fund">
               <div className=" h-full border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
-                <div className="h-1/2 text-center py-4">
+                <div className="h-1/2 text-center py-20">
                   <a className="text-black text-2xl text-center align-middle px-8 py-4 ">
                     {content.title3}
                   </a>
@@ -52,7 +52,7 @@ const Splash = ({ content }) => {
           <div className="h-1/4 w-screen bg-black cursor-pointer">
             <Link href="/forms/attend">
               <div className=" h-full border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
-                <div className="h-1/2 text-center py-4">
+                <div className="h-1/2 text-center py-20">
                   <a className="text-white text-2xl text-center align-middle px-8 py-4 ">
                     {content.title4}
                   </a>

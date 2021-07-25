@@ -1,25 +1,31 @@
 import { fetchEntry } from "@utils/contentful";
 import Link from "next/link";
-import Layout from "../components/Layout";
+import { Button } from "semantic-ui-react";
 
 const Splash = ({ content }) => {
   return (
-    <Layout>
-      <div className="container bg-black min-h-screen">
-        <section className="bg-black flex flex-col justify-center">
-          <p className="text-center text-white mt-6 text-2xl">
-            {content.bodyText}
-          </p>
-          <div className="text-center m-auto mt-6">
-            <Link href="/home">
-              <button className="text-white w-auto cursor-pointer leading-none px-3 py-1 border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500">
-                {content.buttonText}
-              </button>
-            </Link>
-          </div>
-        </section>
-      </div>
-    </Layout>
+    <div className=" bg-black min-h-screen">
+      <section className="bg-black flex flex-col justify-center align-middle">
+        <img
+          src={"/logo-crop.png"}
+          alt="logo"
+          height="1rem"
+          className="m-auto"
+        />
+
+        <div className="text-center m-auto mt-6">
+          <Link href="/home">
+            <Button
+              icon="right arrow"
+              primary
+              className="text-white w-auto cursor-pointer leading-none px-3 py-1 border border-solid rounded bg-transparent block outline-none focus:outline-none hover:bg-gray-500"
+            >
+              {content.buttonText}
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 };
 export async function getStaticProps() {
